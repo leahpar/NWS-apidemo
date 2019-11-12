@@ -1,0 +1,70 @@
+Jeux
+GET         /jeux?x=y
+GPD         /jeux/id
+POST        /jeux/new
+
+Auteurs
+GET         /auteurs?x=y
+GPD         /auteurs/id
+POST        /auteurs/new
+
+Editeurs
+GET         /editeurs?x=y
+GPD         /editeurs/id
+POST        /editeurs/new
+
+
+Quels sont les éditeurs connus dans la base de données ?
+GET /editeurs
+
+
+Quels sont les jeux vendus par le vendeur F ?
+GET /vendeurs?name=F
+GET /jeux?vendeur=id
+
+Quels sont les jeux jouables à plus de 2 ?
+GET /jeux?min_players=3
+SELECT * FROM jeux where max_players >= 3;
+
+Quels sont les jeux jouables entre 1 et 3 joueurs ?
+GET /jeux?min_players=1&max_players=3
+
+Quels sont les jeux jouables à 4 joueurs ?
+GET /jeux?min_players=4&max_players=4
+SELECT * FROM jeux where min_players >= 4 and max_players <= 4;
+
+Quels sont les jeux disponibles pour moins de 20€ ?
+GET /jeux?prix_min=20&dispo=true
+SELECT * FROM jeux where prix <= 20 and dispo = 'en stock';
+
+
+Combien de jeux proposent chaque revendeur ?
+GET /vendeurs
+GET /nb_jeux?vendeur=F
+GET /nb_jeux?vendeur=A
+
+GET /nb_jeux?vendeur=
+
+GET /nb_jeux?group_by=vendeurs
+
+GET /vendeurs?fields=id,name,nb_jeux
+id=1;vendeur=F;nb_jeux=4
+id=2;vendeur=A;nb_jeux=32
+
+
+Quels jeux sortis avant l’an 2000 sont en stock ?
+GET /jeux?date_max=2000&dispo=true
+SELECT * FROM jeux where annee <= 20 and dispo = 'en stock';
+
+Quels jeux ont plusieurs auteurs ?
+GET /jeux?nb_auteurs_min=2
+
+GET /jeux_avec_plusieurs_auteurs?nb=2
+
+
+Quels jeux sont édités à la fois en édition voyage et en édition table ?
+GET /jeux?editions=table,voyage
+GET /jeux?edition=table,voyage&operator_edition=AND
+
+Quels auteurs ont créé plusieurs jeux ?
+GET /auteurs?min_jeux=2

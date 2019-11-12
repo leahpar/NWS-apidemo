@@ -1,0 +1,12 @@
+[08-Oct-2019 17:48:44 Europe/Paris] PHP Fatal error:  Uncaught Symfony\Component\Debug\Exception\FatalThrowableError: syntax error, unexpected '}', expecting '(' in /Users/raphael/projets/NWS/apidemo/src/Controller/VoitureController.php:31
+Stack trace:
+#0 [internal function]: Symfony\Component\Debug\DebugClassLoader->loadClass('App\\Controller\\...')
+#1 [internal function]: spl_autoload_call('App\\Controller\\...')
+#2 /Users/raphael/projets/NWS/apidemo/vendor/symfony/config/Resource/ReflectionClassResource.php(105): ReflectionClass->__construct('App\\Controller\\...')
+#3 /Users/raphael/projets/NWS/apidemo/vendor/symfony/config/Resource/ReflectionClassResource.php(52): Symfony\Component\Config\Resource\ReflectionClassResource->computeHash()
+#4 /Users/raphael/projets/NWS/apidemo/vendor/symfony/config/Resource/SelfCheckingResourceChecker.php(34): Symfony\Component\Config\Resource\ReflectionClassResource->isFresh(1570549672)
+#5 /Users/raphael/projets/NWS/apidemo/vendor/symfony/config/ResourceCheckerConfigCache.php(99): Symfony\Component\Config\Resource\SelfCheckingR in /Users/raphael/projets/NWS/apidemo/src/Controller/VoitureController.php on line 31
+[14-Oct-2019 09:27:58 Europe/Paris] PHP Parse error:  syntax error, unexpected '++' (T_INC), expecting ',' or ';' in php shell code on line 1
+[14-Oct-2019 09:31:22 Europe/Paris] PHP Parse error:  Invalid numeric literal in php shell code on line 1
+[14-Oct-2019 09:31:25 Europe/Paris] PHP Parse error:  Invalid numeric literal in php shell code on line 1
+[14-Oct-2019 09:31:52 Europe/Paris] PHP Parse error:  Invalid numeric literal in php shell code on line 1
