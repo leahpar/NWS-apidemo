@@ -17,3 +17,11 @@
 ###> symfony/web-server-bundle ###
 /.web-server-pid
 ###< symfony/web-server-bundle ###
+
+
+/.idea/
+/public/php_errors.log
+
+
+
+
