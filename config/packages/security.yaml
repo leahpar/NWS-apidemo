@@ -2,6 +2,7 @@ security:
     encoders:
         App\Entity\User:
             algorithm: auto
+        Symfony\Component\Security\Core\User\User: plaintext
 
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
@@ -11,15 +12,34 @@ security:
                 class: App\Entity\User
                 property: username
 
+        in_memory:
+            memory:
+                users:
+                    admin:
+                        password: 'toto'
+                        roles: 'ROLE_ADMIN'
+                    admin2:
+                        password: 'toto'
+                        roles: 'ROLE_ADMIN'
+
+
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
+        admin:
+            pattern: ^/admin
+            anonymous: false
+            http_basic:
+                realm: 'azeazeaze aze aze az eaze '
+                provider: in_memory
+
         main:
             anonymous: true
 
             json_login:
+                provider: app_user_provider
                 check_path: /api/login
                 username_path: username
                 password_path: password
@@ -27,7 +47,7 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        #- { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/admin, roles: ROLE_ADMIN }
         - { path: ^/api/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/api/logout, roles: ROLE_USER }

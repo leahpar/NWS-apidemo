@@ -10,3 +10,7 @@ rest_controllers:
     prefix: '/api'
     name_prefix: 'api_'
 
+etst_controllers:
+    resource: ../../src/Controller
+    type: annotation
+
